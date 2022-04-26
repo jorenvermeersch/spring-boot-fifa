@@ -13,9 +13,7 @@
 	<form:form method="post" action="/fifa" modelAttribute="stadium">
 		<label for="chosenStadium">Stadiums:</label>
 		<form:select path="value" id="chosenStadium" name="chosenStadium">
-			<c:forEach items="${stadiumList}" var="stadium">
-				<option value="${stadium}">${stadium}</option>
-			</c:forEach>
+			<form:options items="${stadiumList}"/>
 		</form:select>
 		<button type="submit">Execute</button>
 	</form:form>

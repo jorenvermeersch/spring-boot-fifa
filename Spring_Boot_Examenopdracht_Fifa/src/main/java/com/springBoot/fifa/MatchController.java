@@ -26,7 +26,7 @@ public class MatchController {
 	
 	@PostMapping
 	public String showOverview(@ModelAttribute Stadium stadium, Model model) {
-		model.addAttribute("matches", soccerService.getMatchesByStadium(stadium.getValue()));
+		model.addAttribute("matchList", soccerService.getMatchesByStadium(stadium.getValue()));
 		return "/matches/overview";
 	}
 }

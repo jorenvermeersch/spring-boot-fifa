@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<h2>Stadium: ${stadium}</h2>
+	<h2>Stadium: ${stadium.value}</h2>
 </body>
 </html>

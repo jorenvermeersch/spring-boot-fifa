@@ -10,14 +10,14 @@
 </head>
 <body>
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<form action="" method="post">
-		<label for="stadium">Stadiums:</label>
-		<select name="stadium" id="stadium">
-		<c:forEach items="${stadiumList}" var="stadium">
-			<option value="${stadium}">${stadium}</option>
-		</c:forEach>
-		</select>
+	<form:form method="post" action="/fifa" modelAttribute="stadium">
+		<label for="chosenStadium">Stadiums:</label>
+		<form:select path="value" id="chosenStadium" name="chosenStadium">
+			<c:forEach items="${stadiumList}" var="stadium">
+				<option value="${stadium}">${stadium}</option>
+			</c:forEach>
+		</form:select>
 		<button type="submit">Execute</button>
-	</form>
+	</form:form>
 </body>
 </html>

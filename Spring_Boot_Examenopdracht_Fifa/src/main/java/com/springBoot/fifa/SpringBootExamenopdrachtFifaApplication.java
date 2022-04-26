@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import service.VoetbalService;
-import service.VoetbalServiceImpl;
+import service.SoccerService;
+import service.SoccerServiceImpl;
 
 @SpringBootApplication
 public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer {
@@ -17,8 +17,8 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 	}
 	
 	@Bean 
-	public VoetbalService soccerService() {
-		return new VoetbalServiceImpl();
+	public SoccerService soccerService() {
+		return new SoccerServiceImpl();
 	}
 	
 	@Override

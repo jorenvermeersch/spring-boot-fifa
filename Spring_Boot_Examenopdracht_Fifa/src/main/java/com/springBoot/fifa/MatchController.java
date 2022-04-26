@@ -6,14 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import service.VoetbalService;
+import service.SoccerService;
 
 @RequestMapping("/fifa")
 @Controller
 public class MatchController {
 	
 	@Autowired
-	private VoetbalService soccerService; 
+	private SoccerService soccerService; 
 	
 	@GetMapping
 	public String selectStadium(Model model) {

@@ -1,16 +1,19 @@
 package domain;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Match {
 
 	private String id; // Unique key. 
 	private String[] countries; // The two countries participating in the match. 
-	private int day; // Day of the match. 
-	private int hour; // Hour of the match. 
+	private LocalDate day; // Day of the match. 
+	private LocalTime hour; // Hour of the match. 
 
 	public Match() {
 	}
 
-	public Match(String id, String[] countries, int day, int hour) {
+	public Match(String id, String[] countries, LocalDate day, LocalTime hour) {
 		this.id = id;
 		this.countries = countries;
 		this.day = day;
@@ -25,11 +28,11 @@ public class Match {
 		return countries;
 	}
 
-	public int getDay() {
+	public LocalDate getDay() {
 		return day;
 	}
 
-	public int getHour() {
+	public LocalTime getHour() {
 		return hour;
 	}
 

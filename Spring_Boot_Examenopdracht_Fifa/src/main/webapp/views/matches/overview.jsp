@@ -18,9 +18,9 @@
 			<th>Start</th>
 			<th>Tickets</th>
 		</tr>
-		<c:forEach items="${matchList}" var="ticket">
+		<c:forEach items="${matchList}" var="ticket" >
 			<tr>
-				<td></td>
+				<td><a href=".">${ticket.match.id}</a></td>
 				<td>${ticket.match.countries[0]}-${ticket.match.countries[1]}</td>
 				<td>${ticket.match.day}</td>
 				<td>${ticket.match.hour}</td>

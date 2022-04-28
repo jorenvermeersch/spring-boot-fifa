@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import domain.MatchTicket;
 import service.SoccerService;
 
 @RequestMapping("/fifa")
@@ -24,9 +26,19 @@ public class MatchController {
 		return "stadium_select";
 	}
 	
+	@GetMapping(value = "/{id}")
+	public String showOrderPage(@PathVariable String id, Model model) {
+		MatchTicket match = soccerService.getMatch(id);
+		if (match == null) {
+			return "redirect:/matches/list";
+		}
+		model.addAttribute("match", match);
+		return "matches/order"; 
+	}
+	
 	@PostMapping
-	public String showOverview(@ModelAttribute Stadium stadium, Model model) {
+	public String showOverviewPage(@ModelAttribute Stadium stadium, Model model) {
 		model.addAttribute("matchList", soccerService.getMatchesByStadium(stadium.getValue()));
-		return "/matches/overview";
+		return "/matches/list";
 	}
 }

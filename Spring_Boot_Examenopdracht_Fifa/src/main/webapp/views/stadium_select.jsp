@@ -2,10 +2,13 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<spring:url value="/css/style.css" var="urlCss"/>
+<link rel="STYLESHEET" href="${urlCss}" type="text/css"/>
 <title>Stadium selection</title>
 </head>
 <body>

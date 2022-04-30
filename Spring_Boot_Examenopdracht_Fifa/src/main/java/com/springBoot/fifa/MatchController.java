@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import domain.MatchTicket;
+import domain.Order;
+import domain.Stadium;
 import service.SoccerService;
 
 @RequestMapping("/fifa")
@@ -28,11 +30,12 @@ public class MatchController {
 	
 	@GetMapping(value = "/{id}")
 	public String showOrderPage(@PathVariable String id, Model model) {
-		MatchTicket match = soccerService.getMatch(id);
-		if (match == null) {
+		MatchTicket ticket = soccerService.getMatch(id);
+		if (ticket == null) {
 			return "redirect:/matches/list";
 		}
-		model.addAttribute("match", match);
+		model.addAttribute("ticket", ticket);
+		model.addAttribute("order", new Order()); 
 		return "matches/order"; 
 	}
 	

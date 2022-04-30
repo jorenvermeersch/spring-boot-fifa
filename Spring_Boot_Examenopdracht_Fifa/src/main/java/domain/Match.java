@@ -41,6 +41,6 @@ public class Match {
 
 	@Override
 	public String toString() {
-		return String.format("%s vs %s op ", countries[0], countries[1]);
+		return String.format("%s vs %s", countries[0], countries[1]);
 	}
 }

@@ -1,4 +1,4 @@
-package com.springBoot.fifa;
+package domain;
 
 public class Stadium {
 	

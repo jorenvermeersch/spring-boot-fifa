@@ -3,6 +3,9 @@ package domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 public class Match {
 
 	private String id; // Unique key. 
@@ -38,6 +41,6 @@ public class Match {
 
 	@Override
 	public String toString() {
-		return String.format("%s vs %s op %d-11", countries[0], countries[1], day);
+		return String.format("%s vs %s op ", countries[0], countries[1]);
 	}
 }

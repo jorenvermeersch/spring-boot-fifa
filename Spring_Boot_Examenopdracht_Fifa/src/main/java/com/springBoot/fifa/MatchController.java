@@ -20,10 +20,10 @@ public class MatchController {
 	private SoccerService soccerService; 
 	
 	@GetMapping
-	public String selectStadium(Model model) {
+	public String showStadiums(Model model) {
 		model.addAttribute("stadiumList", soccerService.getStadiumList());
 		model.addAttribute("stadium", new Stadium());
-		return "stadium_select";
+		return "select_stadium";
 	}
 	
 	@GetMapping(value = "/{id}")

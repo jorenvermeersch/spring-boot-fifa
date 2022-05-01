@@ -7,6 +7,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <spring:url value="/css/style.css" var="urlCss"/>
 <link rel="STYLESHEET" href="${urlCss}" type="text/css"/>
 <title>Match overview</title>

@@ -27,23 +27,21 @@ h2 {
 	font-weight: bold; 
 }
 
-form > * {
+form > *, 
+input {
   border: none;
   outline: none;
   padding: 16px 24px;
 }
 
 form > select,
-form > input,
-form > button {
+form > button,
+input {
   background-color: var(--white);
   border-radius: 4px;
 }
 
 
-table a {
-	text-decoration: none; 
-}
 
 td {
 	text-align: center; 	
@@ -63,6 +61,28 @@ td, th {
 	background-color: var(--white);
 	padding: 16px 24px; 
 }
+
+td:first-child {
+	padding: 0px;
+	height:100%;
+
+}
+
+td a {
+	text-decoration: none; 
+  	display: inline-block;
+  	height:100%;
+  	width:100%;
+  	padding: 16px 0px; 
+}
+
+td a:hover {
+	text-decoration: underline; 
+	text-decoration-thickness: 3px; 
+	color: var(--white);
+	background-color: var(--green)	
+}
+
 
 th:first-of-type {
   border-top-left-radius: 4px;

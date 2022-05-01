@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import service.SoccerService;
 import service.SoccerServiceImpl;
+import validator.OrderValidation;
 
 @SpringBootApplication
 public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer {
@@ -19,6 +20,11 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 	@Bean 
 	public SoccerService soccerService() {
 		return new SoccerServiceImpl();
+	}
+	
+	@Bean
+	public OrderValidation orderValidation() {
+		return new OrderValidation(); 
 	}
 	
 	@Override

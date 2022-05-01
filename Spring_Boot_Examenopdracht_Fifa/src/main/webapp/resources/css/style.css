@@ -60,17 +60,6 @@ button {
 	background-color: var(--dark-blue);
 }
 
-#order-form {
-	display: grid; 
-	gap: 8px; 
-	grid-template-columns: 2fr 3fr; 
-	width: 50%; 	
-}
-
-#order-form label {
-	 padding: 16px 24px 16px 0px;	
-}
-
 #stadium-form > * {
 	margin-right: 8px; 
 }

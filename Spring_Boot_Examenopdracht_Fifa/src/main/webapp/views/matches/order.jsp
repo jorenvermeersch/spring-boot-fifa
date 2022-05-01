@@ -24,22 +24,31 @@
 	<h2>Stadium:</h2>
 	<h3>${ticket.match} on <fmt:formatDate type="date" value="${parsedDate}" pattern="dd-MM" /></h3>
 	<h3>Amount of tickets available: ${ticket.tickets}</h3>
-	<form:form method="get" modelAttribute="order" id="order-form">
-	
-
+	<form:form method="post" action="/fifa/order" modelAttribute="order" id="order-form">
+		<div>
 			<label>email:</label>
 			<form:input path="email"/>
-
+			<form:errors path="email" />
+		</div>
+		<div>
 			<label>Amount of tickets:</label>
 			<form:input path="amount"/>
-
+			<form:errors path="amount" />
+		</div>
+		<div>
 			<label>soccerCode1:</label>
 			<form:input path="soccerCode1"/>
-
+			<form:errors path="soccerCode1" />
+		</div>
+		<div>
 			<label>soccerCode2:</label>
 			<form:input path="soccerCode2"/>
-			
-		<input type="submit" value="Buy" class="btn"/>
+			<form:errors path="soccerCode2" />
+		</div>
+		<div>
+			<input type="submit" value="Buy" class="btn"/>
+		</div>
+		
 	</form:form>
 </body>
 </html>

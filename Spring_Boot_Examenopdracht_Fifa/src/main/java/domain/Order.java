@@ -1,9 +1,28 @@
 package domain;
 
-public class Order {
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
+public class Order {
+	@NotEmpty
+	@Email
 	private String email;
-	private int amount, soccerCode1, soccerCode2;
+	
+	@NotNull
+	@Min(1)
+	@Max(25)
+	private int amount = 1;
+	
+	@NotNull
+	@Min(1)
+	private int soccerCode1 = 10;
+	
+	@NotNull
+	@Min(1)
+	private int soccerCode2 = 20; 
 
 	// Setters.
 	public void setEmail(String email) {

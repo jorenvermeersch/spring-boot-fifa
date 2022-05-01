@@ -1,8 +1,11 @@
 package com.springBoot.fifa;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +16,7 @@ import domain.MatchTicket;
 import domain.Order;
 import domain.Stadium;
 import service.SoccerService;
+import validator.OrderValidation;
 
 @RequestMapping("/fifa")
 @Controller
@@ -20,6 +24,9 @@ public class MatchController {
 	
 	@Autowired
 	private SoccerService soccerService; 
+	
+	@Autowired
+	private OrderValidation orderValidation; 
 	
 	@GetMapping
 	public String showStadiums(Model model) {
@@ -43,5 +50,17 @@ public class MatchController {
 	public String showOverviewPage(@ModelAttribute Stadium stadium, Model model) {
 		model.addAttribute("matchList", soccerService.getMatchesByStadium(stadium.getValue()));
 		return "/matches/list";
+	}
+		
+	// TODO: Something wrong here. 
+	@PostMapping(value = "/order")
+	public String onPurchase(@Valid Order order, BindingResult result, Model model) {
+		orderValidation.validate(order, result); // Validation soccerCode1 < soccerCode2
+		
+		if (result.hasErrors()) {
+			return "matches/order"; 
+		}
+		
+		return "matches/list"; 
 	}
 }

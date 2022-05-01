@@ -2,8 +2,8 @@
   --white: #D9E4EC;
   --blue: #B7CFDC;
   --dark-blue: #385E72;
-  --light-orange: #D3D2C7; 
-  --orange: #CB8E66; 
+  --light-orange: #F2C894; 
+  --orange: #FF985A; 
 }
 
 * {
@@ -12,6 +12,7 @@
   color: var(--dark-blue);
 }
 
+/* General styling */ 
 body {
   margin: auto;
   max-width: 1600px;
@@ -19,22 +20,32 @@ body {
   background-color: var(--blue);
 }
 
+h1,
+h2,
+h3 {
+	font-weight: bold; 
+}
+
 h1 {
   font-size: 2rem;
-  font-weight: bold;
 }
 
 h2 {
 	font-size: 1.5rem;
-	font-weight: bold; 
 }
 
+h3 {
+	font-size: 1.25rem; 	
+}
+
+/* Form */
 form > *, 
 input {
   border: none;
   outline: none;
   padding: 16px 24px;
 }
+
 
 form > select,
 form > button,
@@ -43,8 +54,28 @@ input {
   border-radius: 4px;
 }
 
+.btn,
+button {
+	color: var(--white); 
+	background-color: var(--dark-blue);
+}
 
+#order-form {
+	display: grid; 
+	gap: 8px; 
+	grid-template-columns: 2fr 3fr; 
+	width: 50%; 	
+}
 
+#order-form label {
+	 padding: 16px 24px 16px 0px;	
+}
+
+#stadium-form > * {
+	margin-right: 8px; 
+}
+
+/* Table */
 td {
 	text-align: center; 	
 }
@@ -79,12 +110,12 @@ td a {
 }
 
 td a:hover {
-	font-weight: bold; 
-	color: var(--orange); 
-	background-color: var(--light-orange);	
+	text-decoration: underline;
+	text-decoration-color: var(--blue); 
+	text-decoration-thickness: 2px; 
 }
 
-
+/* Rounded corners */
 th:first-of-type {
   border-top-left-radius: 4px;
 }

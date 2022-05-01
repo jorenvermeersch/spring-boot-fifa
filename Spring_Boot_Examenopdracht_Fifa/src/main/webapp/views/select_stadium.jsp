@@ -18,12 +18,12 @@
 </head>
 <body>
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<form:form method="post" action="/fifa" modelAttribute="stadium">
+	<form:form method="post" action="/fifa" modelAttribute="stadium" id="stadium-form">
 		<label for="chosenStadium">Stadiums:</label>
 		<form:select path="value" id="chosenStadium" name="chosenStadium">
 			<form:options items="${stadiumList}"/>
 		</form:select>
-		<button type="submit">Execute</button>
+		<button type="submit" class="btn">Execute</button>
 	</form:form>
 </body>
 </html>

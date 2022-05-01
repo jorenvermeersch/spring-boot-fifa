@@ -1,20 +1,22 @@
 :root {
-  --white: #e9e6e2;
-  --green: #c1c2ad;
-  --dark-green: #535e4b;
+  --white: #D9E4EC;
+  --blue: #B7CFDC;
+  --dark-blue: #385E72;
+  --light-orange: #D3D2C7; 
+  --orange: #CB8E66; 
 }
 
 * {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 1rem;
-  color: var(--dark-green);
+  color: var(--dark-blue);
 }
 
 body {
   margin: auto;
   max-width: 1600px;
   padding: 0 12px;
-  background-color: var(--green);
+  background-color: var(--blue);
 }
 
 h1 {
@@ -77,10 +79,9 @@ td a {
 }
 
 td a:hover {
-	text-decoration: underline; 
-	text-decoration-thickness: 3px; 
-	color: var(--white);
-	background-color: var(--green)	
+	font-weight: bold; 
+	color: var(--orange); 
+	background-color: var(--light-orange);	
 }
 
 

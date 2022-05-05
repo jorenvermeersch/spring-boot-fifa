@@ -34,7 +34,9 @@
 	<h2>${stadium}: ${chosenStadium.value}</h2>
 	<h3>${matchTicket.match} ${on} <fmt:formatDate type="date" value="${parsedDate}" pattern="dd-MM" /></h3>
 	<h3>${ticketsAvailable}: ${matchTicket.tickets}</h3>
-	<form:form method="POST" action="/fifa/order" modelAttribute="order" id="order-form">
+	
+	<spring:url value="/fifa" var="placeOrderUrl"></spring:url>
+	<form:form method="POST" action="${placeOrderUrl}/${matchTicket.match.id}" modelAttribute="order" id="order-form">
 		<div>
 			<label for="email">${email}:</label>
 			<form:input path="email" id="email"/>

@@ -11,6 +11,9 @@
 <spring:message code="title.overviewMatches" var="overviewMatches"/>
 <spring:message code="stadium" var="stadium"/>
 
+<spring:message code="confirmation.ticket.purchased" var="ticketsPurchased"/>
+<spring:message code="confirmation.ticket.soldout" var="ticketsSoldOut"/>
+
 <spring:message code="matchlist.number" var="number"/>
 <spring:message code="matchlist.soccerMatch" var="soccerMatch"/>
 <spring:message code="matchlist.date" var="date"/>
@@ -28,6 +31,13 @@
 <title>${overviewMatches}</title>
 </head>
 <body>
+	<c:if test="${param.verkocht!=null}">
+		<div class="notification">${param.verkocht} ${ticketsPurchased}.</div>
+	</c:if>
+	<c:if test="${param.uitverkocht==true}">
+		<div class="notification">${ticketsSoldOut}.</div>
+	</c:if>
+	
 	<h1>FIFA Word Cup Qatar 2022</h1>
 	<h2>${stadium}: ${chosenStadium.value}</h2>
 	<table>
@@ -38,12 +48,12 @@
 			<th>${start}</th>
 			<th>${tickets}</th>
 		</tr>
-		<spring:url value="/fifa/" var="buyTicketsUrl"></spring:url>
+		<spring:url value="/fifa/" var="orderPageUrl"></spring:url>
 		<c:forEach items="${matchList}" var="matchTicket" >
 			<!-- LocalDate needs to be parsed before it can be formatted using JSTL -->
 			<fmt:parseDate value="${matchTicket.match.day}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
 			<tr>
-				<td><a href="${buyTicketsUrl}${matchTicket.match.id}">${matchTicket.match.id}</a></td>
+				<td><a href="${orderPageUrl}${matchTicket.match.id}">${matchTicket.match.id}</a></td>
 				<td>${matchTicket.match.countries[0]}-${matchTicket.match.countries[1]}</td>
 				<td><fmt:formatDate type="date" value="${parsedDate}" pattern="${dateFormatPattern}" /></td>
 				<td>${matchTicket.match.hour}</td>

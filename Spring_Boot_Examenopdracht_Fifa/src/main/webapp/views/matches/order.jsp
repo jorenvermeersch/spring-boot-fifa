@@ -61,6 +61,7 @@
 			<input type="submit" value="Buy" class="btn"/>
 		</div>
 		
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
 	</form:form>
 </body>
 </html>

@@ -17,6 +17,8 @@
 <spring:message code="matchlist.start" var="start"/>
 <spring:message code="matchlist.tickets" var="tickets"/>
 
+<spring:message code="date.format.pattern" var="dateFormatPattern"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -43,7 +45,7 @@
 			<tr>
 				<td><a href="${buyTicketsUrl}${matchTicket.match.id}">${matchTicket.match.id}</a></td>
 				<td>${matchTicket.match.countries[0]}-${matchTicket.match.countries[1]}</td>
-				<td><fmt:formatDate type="date" value="${parsedDate}" pattern="dd MMMM" /></td>
+				<td><fmt:formatDate type="date" value="${parsedDate}" pattern="${dateFormatPattern}" /></td>
 				<td>${matchTicket.match.hour}</td>
 				<td>${matchTicket.tickets}</td>
 			</tr>

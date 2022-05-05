@@ -9,19 +9,20 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Range;
 
 public class Order {
-	@NotEmpty
-	@Email
+	@NotEmpty(message = "{validation.required}")
+	@Email(message = "{validation.email.invalid}")
 	private String email;
 	
-	@NotNull
-	@Range(min = 1, max = 25)
+	@NotNull(message = "{validation.required}")
+	@Min(value = 1, message = "{validation.amount.min}")
+	@Max(value = 25, message = "{validation.amount.max}")
 	private int amount = 1; // Number of tickets. 
 	
-	@NotNull
+	@NotNull(message = "{validation.required}")
 	@Min(1)
 	private int soccerCode1 = 10;
 	
-	@NotNull
+	@NotNull(message = "{validation.required}")
 	@Min(1)
 	private int soccerCode2 = 20; 
 

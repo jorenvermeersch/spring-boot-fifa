@@ -22,7 +22,7 @@ import validator.OrderValidation;
 @RequestMapping("/fifa")
 @Controller
 @SessionAttributes("chosenStadium")
-public class MatchController {
+public class FifaController {
 	
 	// Holds the name of the stadium chosen by the user. 
 	@ModelAttribute("chosenStadium")

@@ -21,10 +21,10 @@
 	<fmt:parseDate value="${ticket.match.day}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
 	
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<h2>Stadium:</h2>
+	<h2>Stadium: ${stadium.value}</h2>
 	<h3>${ticket.match} on <fmt:formatDate type="date" value="${parsedDate}" pattern="dd-MM" /></h3>
 	<h3>Amount of tickets available: ${ticket.tickets}</h3>
-	<form:form method="post" action="/fifa/order" modelAttribute="order" id="order-form">
+	<form:form method="POST" action="/fifa/order" modelAttribute="order" id="order-form">
 		<div>
 			<label>email:</label>
 			<form:input path="email"/>

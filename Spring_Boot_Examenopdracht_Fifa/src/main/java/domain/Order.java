@@ -6,14 +6,15 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Range;
+
 public class Order {
 	@NotEmpty
 	@Email
 	private String email;
 	
 	@NotNull
-	@Min(1)
-	@Max(25)
+	@Range(min = 1, max = 25)
 	private int amount = 1;
 	
 	@NotNull

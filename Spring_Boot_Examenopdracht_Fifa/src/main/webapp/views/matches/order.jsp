@@ -18,31 +18,31 @@
 <title>Order</title>
 </head>
 <body>
-	<fmt:parseDate value="${ticket.match.day}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
+	<fmt:parseDate value="${matchTicket.match.day}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
 	
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<h2>Stadium: ${stadium.value}</h2>
-	<h3>${ticket.match} on <fmt:formatDate type="date" value="${parsedDate}" pattern="dd-MM" /></h3>
-	<h3>Amount of tickets available: ${ticket.tickets}</h3>
+	<h2>Stadium: ${chosenStadium.value}</h2>
+	<h3>${matchTicket.match} on <fmt:formatDate type="date" value="${parsedDate}" pattern="dd-MM" /></h3>
+	<h3>Amount of tickets available: ${matchTicket.tickets}</h3>
 	<form:form method="POST" action="/fifa/order" modelAttribute="order" id="order-form">
 		<div>
-			<label>email:</label>
-			<form:input path="email"/>
+			<label for="email">email:</label>
+			<form:input path="email" id="email"/>
 			<form:errors path="email" />
 		</div>
 		<div>
-			<label>Amount of tickets:</label>
-			<form:input path="amount"/>
+			<label for="amount">Amount of tickets:</label>
+			<form:input path="amount" id="amount"/>
 			<form:errors path="amount" />
 		</div>
 		<div>
-			<label>soccerCode1:</label>
-			<form:input path="soccerCode1"/>
+			<label for="soccerCode1">soccerCode1:</label>
+			<form:input path="soccerCode1" id="soccerCode1"/>
 			<form:errors path="soccerCode1" />
 		</div>
 		<div>
-			<label>soccerCode2:</label>
-			<form:input path="soccerCode2"/>
+			<label for="soccerCode2">soccerCode2:</label>
+			<form:input path="soccerCode2" id="soccerCode2"/>
 			<form:errors path="soccerCode2" />
 		</div>
 		<div>

@@ -27,15 +27,15 @@ h3 {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.725rem;
 }
 
 h2 {
-	font-size: 1.5rem;
+	font-size: 1.325rem;
 }
 
 h3 {
-	font-size: 1.25rem; 	
+	font-size: 1.125rem; 	
 }
 
 /* Form */
@@ -46,6 +46,13 @@ input {
   padding: 16px 24px;
 }
 
+form > div {
+	padding: 8px; 
+}
+
+form span {
+	padding-left: 16px; 
+}
 
 form > select,
 form > button,

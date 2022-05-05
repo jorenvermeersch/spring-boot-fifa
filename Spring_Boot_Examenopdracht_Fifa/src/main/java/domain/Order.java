@@ -15,7 +15,7 @@ public class Order {
 	
 	@NotNull
 	@Range(min = 1, max = 25)
-	private int amount = 1;
+	private int amount = 1; // Number of tickets. 
 	
 	@NotNull
 	@Min(1)

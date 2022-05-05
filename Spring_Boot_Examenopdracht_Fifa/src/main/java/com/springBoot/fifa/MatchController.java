@@ -21,11 +21,12 @@ import validator.OrderValidation;
 
 @RequestMapping("/fifa")
 @Controller
-@SessionAttributes("stadium")
+@SessionAttributes("chosenStadium")
 public class MatchController {
 	
-	@ModelAttribute("stadium")
-	public Stadium stadium() {
+	// Holds the name of the stadium chosen by the user. 
+	@ModelAttribute("chosenStadium")
+	public Stadium chosenStadium() {
 		return new Stadium(); 
 	}
 	
@@ -44,18 +45,18 @@ public class MatchController {
 	
 	@GetMapping(value = "/{id}")
 	public String showOrderPage(@PathVariable String id, Model model) {
-		MatchTicket ticket = soccerService.getMatch(id);
-		if (ticket == null) {
+		MatchTicket matchTicket = soccerService.getMatch(id);
+		if (matchTicket == null) {
 			return "redirect:/matches/list";
 		}
-		model.addAttribute("ticket", ticket);
+		model.addAttribute("matchTicket", matchTicket);
 		model.addAttribute("order", new Order()); 
 		return "matches/order"; 
 	}
 	
 	@PostMapping
-	public String showOverviewPage(@ModelAttribute Stadium stadium, Model model) {
-		model.addAttribute("matchList", soccerService.getMatchesByStadium(stadium.getValue()));
+	public String showOverviewPage(@ModelAttribute("chosenStadium") Stadium chosenStadium, Model model) {
+		model.addAttribute("matchList", soccerService.getMatchesByStadium(chosenStadium.getValue()));
 		return "/matches/list";
 	}
 		
@@ -66,6 +67,13 @@ public class MatchController {
 		
 		if (result.hasErrors()) {
 			return "matches/order"; 
+		}
+		
+		MatchTicket ticket = (MatchTicket) model.getAttribute("ticket"); 
+		
+		if (ticket.getTickets() - order.getAmount() >= 0) {
+			ticket.buyTickets(order.getAmount()); 
+			return "redirect:matches/list"; 
 		}
 		
 		return "matches/list"; 

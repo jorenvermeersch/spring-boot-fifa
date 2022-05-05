@@ -17,7 +17,7 @@ public class OrderValidation implements Validator {
 		Order order = (Order) target;
 		
 		if (order.getSoccerCode1() >= order.getSoccerCode2()) {
-			errors.rejectValue("soccerCode1", "", "soccerCode1 must be smaller than soccerCode2");
+			errors.rejectValue("soccerCode1", "", "soccerCode1 < soccerCode2");
 		}	
 	}
 }

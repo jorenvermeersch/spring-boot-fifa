@@ -17,7 +17,7 @@
 </head>
 <body>
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<h2>Stadium: ${stadium.value}</h2>
+	<h2>Stadium: ${chosenStadium.value}</h2>
 	<table>
 		<tr>
 			<th>Nr</th>
@@ -27,15 +27,15 @@
 			<th>Tickets</th>
 		</tr>
 		<spring:url value="/fifa/" var="buyTicketsUrl"></spring:url>
-		<c:forEach items="${matchList}" var="ticket" >
+		<c:forEach items="${matchList}" var="matchTicket" >
 			<!-- LocalDate needs to be parsed before it can be formatted using JSTL -->
-			<fmt:parseDate value="${ticket.match.day}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
+			<fmt:parseDate value="${matchTicket.match.day}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
 			<tr>
-				<td><a href="${buyTicketsUrl}${ticket.match.id}">${ticket.match.id}</a></td>
-				<td>${ticket.match.countries[0]}-${ticket.match.countries[1]}</td>
+				<td><a href="${buyTicketsUrl}${matchTicket.match.id}">${matchTicket.match.id}</a></td>
+				<td>${matchTicket.match.countries[0]}-${matchTicket.match.countries[1]}</td>
 				<td><fmt:formatDate type="date" value="${parsedDate}" pattern="dd MMMM" /></td>
-				<td>${ticket.match.hour}</td>
-				<td>${ticket.tickets}</td>
+				<td>${matchTicket.match.hour}</td>
+				<td>${matchTicket.tickets}</td>
 			</tr>
 		</c:forEach>
 	</table>

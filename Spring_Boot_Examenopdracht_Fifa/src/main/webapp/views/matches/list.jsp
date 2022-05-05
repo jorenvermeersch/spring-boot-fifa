@@ -31,6 +31,11 @@
 <title>${overviewMatches}</title>
 </head>
 <body>
+	<form action="logout" method="post">
+		<input type="submit" class="btn-logout" value="Log out"/>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	</form>
+	
 	<c:if test="${param.verkocht!=null}">
 		<div class="notification">${param.verkocht} ${ticketsPurchased}.</div>
 	</c:if>

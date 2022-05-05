@@ -21,13 +21,18 @@
 <title>${stadiums}</title>
 </head>
 <body>
+	<form action="logout" method="post">
+		<input type="submit" class="btn-logout" value="Log out"/>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	</form>
+	
 	<h1>FIFA Word Cup Qatar 2022</h1>
 	<form:form method="post" action="/fifa" modelAttribute="chosenStadium" id="stadium-form">
 		<label for="chosenStadium">${stadiums}:</label>
 		<form:select path="value" id="chosenStadium" name="chosenStadium">
 			<form:options items="${stadiumList}"/>
 		</form:select>
-		<button type="submit" class="btn">${execute}</button>
+		<input type="submit" class="btn" value="${execute}"/>
 	</form:form>
 </body>
 </html>

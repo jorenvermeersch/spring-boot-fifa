@@ -138,16 +138,35 @@ tr:last-of-type td:last-of-type {
 	width: fit-content; 
 }
 
-#order-form label {
+#order-form label, 
+#login label {
 	display: inline-block; 
 	width: 150px; 
 }
 
-#order-form input {
+#order-form input,
+#login input {
 	width: 300px; 
 }
-#order-form input[type="submit"] {
+
+#order-form input[type="submit"], 
+#login input[type="submit"] {
 	width: auto; 
 }
 
+/* Login */
+.btn-logout {
+	border: none;
+	outline: none; 
+	color: var(--white);
+	background-color: var(--dark-blue);
+	padding: 16px 24px;
+	margin-top: 16px; 
+	border-radius: 4px;
+}
+
+.error,
+.info {
+	margin: 8px;
+}
 

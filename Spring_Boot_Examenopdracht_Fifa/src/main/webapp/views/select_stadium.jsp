@@ -8,22 +8,26 @@
 <head>
 <meta charset="ISO-8859-1">
 
+<spring:message code="title.stadiums" var="stadiums"/>
+<spring:message code="stadiums" var="stadiums"/>
+<spring:message code="button.execute" var="execute"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <spring:url value="/css/style.css" var="urlCss"/>
 <link rel="STYLESHEET" href="${urlCss}" type="text/css"/>
-<title>Stadium selection</title>
+<title>${stadiums}</title>
 </head>
 <body>
 	<h1>FIFA Word Cup Qatar 2022</h1>
 	<form:form method="post" action="/fifa" modelAttribute="chosenStadium" id="stadium-form">
-		<label for="chosenStadium">Stadiums:</label>
+		<label for="chosenStadium">${stadiums}:</label>
 		<form:select path="value" id="chosenStadium" name="chosenStadium">
 			<form:options items="${stadiumList}"/>
 		</form:select>
-		<button type="submit" class="btn">Execute</button>
+		<button type="submit" class="btn">${execute}</button>
 	</form:form>
 </body>
 </html>

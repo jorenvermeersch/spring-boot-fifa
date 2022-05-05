@@ -7,24 +7,34 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
+<spring:message code="title.overviewMatches" var="overviewMatches"/>
+<spring:message code="stadium" var="stadium"/>
+
+<spring:message code="matchlist.number" var="number"/>
+<spring:message code="matchlist.soccerMatch" var="soccerMatch"/>
+<spring:message code="matchlist.date" var="date"/>
+<spring:message code="matchlist.start" var="start"/>
+<spring:message code="matchlist.tickets" var="tickets"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <spring:url value="/css/style.css" var="urlCss"/>
 <link rel="STYLESHEET" href="${urlCss}" type="text/css"/>
-<title>Match overview</title>
+<title>${overviewMatches}</title>
 </head>
 <body>
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<h2>Stadium: ${chosenStadium.value}</h2>
+	<h2>${stadium}: ${chosenStadium.value}</h2>
 	<table>
 		<tr>
-			<th>Nr</th>
-			<th>Soccer match</th>
-			<th>Date</th>
-			<th>Start</th>
-			<th>Tickets</th>
+			<th>${number}</th>
+			<th>${soccerMatch}</th>
+			<th>${date}</th>
+			<th>${start}</th>
+			<th>${tickets}</th>
 		</tr>
 		<spring:url value="/fifa/" var="buyTicketsUrl"></spring:url>
 		<c:forEach items="${matchList}" var="matchTicket" >

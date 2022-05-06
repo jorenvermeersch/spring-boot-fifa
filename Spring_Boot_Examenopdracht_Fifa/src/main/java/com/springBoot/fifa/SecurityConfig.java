@@ -23,11 +23,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("user")).roles("USER").and()
 				.withUser("admin").password(passwordEncoder().encode("admin")).roles("USER", "ADMIN");
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.formLogin().defaultSuccessUrl("/fifa", true).loginPage("/login"); 
+		http.formLogin().defaultSuccessUrl("/fifa", true).loginPage("/login");
 		http.authorizeRequests().antMatchers("/fifa").hasAnyRole("USER", "ADMIN").and().csrf();
+
 	}
 
 }

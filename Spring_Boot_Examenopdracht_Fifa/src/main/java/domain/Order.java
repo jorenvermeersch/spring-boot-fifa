@@ -16,30 +16,30 @@ public class Order {
 	@NotNull(message = "{validation.required}")
 	@Min(value = 1, message = "{validation.amount.min}")
 	@Max(value = 25, message = "{validation.amount.max}")
-	private int amount = 1; // Number of tickets. 
+	private Integer amount = 1; // Number of tickets. 
 	
 	@NotNull(message = "{validation.required}")
 	@Min(1)
-	private int soccerCode1 = 10;
+	private Integer soccerCode1 = 10;
 	
 	@NotNull(message = "{validation.required}")
 	@Min(1)
-	private int soccerCode2 = 20; 
+	private Integer soccerCode2 = 20; 
 
 	// Setters.
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
-	public void setSoccerCode1(int soccerCode1) {
+	public void setSoccerCode1(Integer soccerCode1) {
 		this.soccerCode1 = soccerCode1;
 	}
 
-	public void setSoccerCode2(int soccerCode2) {
+	public void setSoccerCode2(Integer soccerCode2) {
 		this.soccerCode2 = soccerCode2;
 	}
 
@@ -48,15 +48,15 @@ public class Order {
 		return email;
 	}
 
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public int getSoccerCode1() {
+	public Integer getSoccerCode1() {
 		return soccerCode1;
 	}
 
-	public int getSoccerCode2() {
+	public Integer getSoccerCode2() {
 		return soccerCode2;
 	}
 

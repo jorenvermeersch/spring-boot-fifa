@@ -60,7 +60,8 @@ public class FifaController {
 			return "redirect:/fifa";
 		}
 		
-		if (matchTicket.getTickets() == 0) {
+		// Match is sold out. 
+		if (matchTicket.soldOut()) {
 			return "redirect:/fifa?uitverkocht=true";
 		}
 		

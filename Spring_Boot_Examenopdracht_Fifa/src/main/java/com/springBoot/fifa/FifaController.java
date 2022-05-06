@@ -55,9 +55,15 @@ public class FifaController {
 	@GetMapping(value = "/{id}")
 	public String showOrderPage(@PathVariable String id, Model model) {
 		MatchTicket matchTicket = soccerService.getMatch(id);
+		
 		if (matchTicket == null) {
 			return "redirect:/fifa";
 		}
+		
+		if (matchTicket.getTickets() == 0) {
+			return "redirect:/fifa?uitverkocht=true";
+		}
+		
 		model.addAttribute("matchTicket", matchTicket);
 		model.addAttribute("order", new Order());
 		return "matches/order";

@@ -40,7 +40,7 @@
 		<div class="notification">${param.verkocht} ${ticketsPurchased}.</div>
 	</c:if>
 	<c:if test="${param.uitverkocht==true}">
-		<div class="notification">${ticketsSoldOut}.</div>
+		<div class="notification error">${ticketsSoldOut}.</div>
 	</c:if>
 	
 	<h1>FIFA Word Cup Qatar 2022</h1>

@@ -3,8 +3,8 @@
   --light-blue: #D9E4EC;
   --blue: #B7CFDC;
   --dark-blue: #385E72;
-  --light-orange: #F2C894; 
-  --orange: #FF985A; 
+  --light-orange: #F1D5D2; 
+  --orange: #BD574E; 
 }
 
 * {
@@ -163,8 +163,15 @@ tr:last-of-type td:last-of-type {
 	border-radius: 4px;
 }
 
-.error,
+form .error,
 .info {
 	margin: 8px;
+}
+
+.error {
+	padding: 16px 24px; 
+	background-color: var(--light-orange); 
+	color: var(--orange); 
+	border-radius: 4px;
 }
 

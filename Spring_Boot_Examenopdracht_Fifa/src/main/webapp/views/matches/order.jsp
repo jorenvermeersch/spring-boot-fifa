@@ -40,22 +40,22 @@
 		<div>
 			<label for="email">${email}:</label>
 			<form:input path="email" id="email"/>
-			<form:errors path="email" />
+			<form:errors path="email" cssClass="error"/>
 		</div>
 		<div>
 			<label for="amount">${numberOfTickets}:</label>
 			<form:input path="amount" id="amount"/>
-			<form:errors path="amount" />
+			<form:errors path="amount" cssClass="error"/>
 		</div>
 		<div>
 			<label for="soccerCode1">${soccerCode1}:</label>
 			<form:input path="soccerCode1" id="soccerCode1"/>
-			<form:errors path="soccerCode1" />
+			<form:errors path="soccerCode1" cssClass="error"/>
 		</div>
 		<div>
 			<label for="soccerCode2">${soccerCode2}:</label>
 			<form:input path="soccerCode2" id="soccerCode2"/>
-			<form:errors path="soccerCode2" />
+			<form:errors path="soccerCode2" cssClass="error"/>
 		</div>
 		<div>
 			<input type="submit" value="Buy" class="btn"/>

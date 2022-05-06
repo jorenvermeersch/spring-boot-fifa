@@ -1,16 +1,11 @@
 package validator;
 
-import java.util.Arrays;
-
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import domain.Order;
 
 public class OrderValidation implements Validator {
-
-//	private final static String[] LABELS = new String[] { "amount", "soccerCode1", "soccerCode2" };
 
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -20,11 +15,6 @@ public class OrderValidation implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		Order order = (Order) target;
-
-//		Arrays.stream(LABELS).forEach(label -> {
-//			ValidationUtils.rejectIfEmptyOrWhitespace(errors, label, "required.item",
-//					String.format("%s required", label));
-//		});
 
 		Integer soccerCode1 = order.getSoccerCode1();
 		Integer soccerCode2 = order.getSoccerCode2();

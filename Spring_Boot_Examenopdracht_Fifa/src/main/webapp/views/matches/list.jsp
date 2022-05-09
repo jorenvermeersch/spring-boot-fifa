@@ -11,9 +11,6 @@
 <spring:message code="title.overviewMatches" var="overviewMatches"/>
 <spring:message code="stadium" var="stadium"/>
 
-<spring:message code="confirmation.ticket.purchased" var="ticketsPurchased"/>
-<spring:message code="confirmation.ticket.soldout" var="ticketsSoldOut"/>
-
 <spring:message code="matchlist.number" var="number"/>
 <spring:message code="matchlist.soccerMatch" var="soccerMatch"/>
 <spring:message code="matchlist.date" var="date"/>
@@ -35,14 +32,6 @@
 		<input type="submit" class="btn-logout" value="Log out"/>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
-	
-	<c:if test="${param.verkocht!=null}">
-		<div class="notification">${param.verkocht} ${ticketsPurchased}.</div>
-	</c:if>
-	<c:if test="${param.uitverkocht==true}">
-		<div class="notification error">${ticketsSoldOut}.</div>
-	</c:if>
-	
 	<h1>FIFA Word Cup Qatar 2022</h1>
 	<h2>${stadium}: ${chosenStadium.value}</h2>
 	<table>

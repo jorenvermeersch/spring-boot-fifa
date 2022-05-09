@@ -42,12 +42,6 @@ public class FifaController {
 	public String showStadiums(@RequestParam(name = "verkocht", required = false) Integer purchased,
 			@RequestParam(name = "uitverkocht", required = false) Boolean soldout, Model model) {
 		
-		if (purchased != null || soldout != null) {
-			Stadium chosenStadium = (Stadium) model.getAttribute("chosenStadium"); 
-			model.addAttribute("matchList", soccerService.getMatchesByStadium(chosenStadium.getValue()));
-			return "matches/list"; 
-		}
-		
 		model.addAttribute("stadiumList", soccerService.getStadiumList());
 		return "select_stadium";
 	}
@@ -73,7 +67,7 @@ public class FifaController {
 	@PostMapping
 	public String showOverviewPage(@ModelAttribute("chosenStadium") Stadium chosenStadium, Model model) {
 		model.addAttribute("matchList", soccerService.getMatchesByStadium(chosenStadium.getValue()));
-		return "/matches/list";
+		return "matches/list";
 	}
 
 	// TODO: Something wrong here.

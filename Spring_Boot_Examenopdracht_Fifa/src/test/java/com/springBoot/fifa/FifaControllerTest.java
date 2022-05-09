@@ -25,6 +25,9 @@ class FifaControllerTest {
 
 	private final static String URL = "/fifa";
 
+	private final static String STADIUM_NAME = "Al Bayt Stadium";
+	private final static String MATCH_ID = "3";
+
 	@Autowired
 	private WebApplicationContext wac;
 
@@ -40,18 +43,23 @@ class FifaControllerTest {
 		mockMvc.perform(get(URL)).andExpect(status().isOk()).andExpect(view().name("select_stadium"))
 				.andExpect(model().attributeExists("stadiumList"));
 	}
-
+	
 	@Test
-	public void testPost_showOverviewPage() throws Exception {
-		mockMvc.perform(post(URL)).andExpect(status().isOk()).andExpect(view().name("/matches/list"))
-				.andExpect(model().attributeExists("chosenStadium"));
+	public void testGet_showOrderPage() throws Exception {
+		mockMvc.perform(post(URL + "/" + MATCH_ID).param("chosenStadium", STADIUM_NAME)).andExpect(status().isOk())
+				.andExpect(view().name("matches/order")).andExpect(model().attributeExists("order"));
 	}
 	
-//	@Test
-//	public void testGet_showOrderPage() throws Exception {
-//		
-//	}
-//	
+	@Test
+	public void testPost_showOverviewPage() throws Exception {
+
+		mockMvc.perform(post(URL).param("chosenStadium", STADIUM_NAME)).andExpect(status().isOk())
+				.andExpect(view().name("matches/list")).andExpect(model().attributeExists("chosenStadium"))
+				.andExpect(model().attributeExists("matchList"));
+	}
+
+
+
 //	@Test 
 //	public void testPost_onPurchase() throws Exception {
 //		

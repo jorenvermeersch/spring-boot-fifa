@@ -3,7 +3,7 @@ package domain;
 public class Stadium {
 	
 	private String value; 
-	
+
 	public String getValue() {
 		return value;
 	}

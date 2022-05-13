@@ -52,16 +52,9 @@ class FifaControllerTest {
 	
 	@Test
 	public void testPost_showOverviewPage() throws Exception {
-
 		mockMvc.perform(post(URL).param("chosenStadium", STADIUM_NAME)).andExpect(status().isOk())
 				.andExpect(view().name("matches/list")).andExpect(model().attributeExists("chosenStadium"))
 				.andExpect(model().attributeExists("matchList"));
 	}
 
-
-
-//	@Test 
-//	public void testPost_onPurchase() throws Exception {
-//		
-//	}
 }

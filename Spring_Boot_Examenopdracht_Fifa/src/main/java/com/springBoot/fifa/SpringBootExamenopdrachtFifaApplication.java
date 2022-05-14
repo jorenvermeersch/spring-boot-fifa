@@ -7,15 +7,20 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import domain.Match;
 import domain.MatchTicket;
 import domain.Stadium;
+import repository.GenericDao;
+import repository.GenericDaoJpa;
+import repository.MatchDao;
+import repository.MatchDaoJpa;
 import repository.MatchTicketDao;
-import repository.MatchTicketDaoJPA;
+import repository.MatchTicketDaoJpa;
 import repository.StadiumDao;
-import repository.StadiumDaoJPA;
+import repository.StadiumDaoJpa;
 import seeder.DatabaseSeeder;
 import service.SoccerService;
-import service.SoccerServiceSQL;
+import service.SoccerServiceJpa;
 import validator.OrderValidation;
 
 @SpringBootApplication
@@ -32,17 +37,22 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 	
 	@Bean
 	public StadiumDao stadiumDao() {
-		return new StadiumDaoJPA(Stadium.class);
+		return new StadiumDaoJpa(Stadium.class);
 	}
 	
 	@Bean
 	public MatchTicketDao matchTicketDao() {
-		return new MatchTicketDaoJPA(MatchTicket.class);
+		return new MatchTicketDaoJpa(MatchTicket.class);
+	}
+	
+	@Bean 
+	public MatchDao matchDao() {
+		return new MatchDaoJpa(Match.class);
 	}
 	
 	@Bean 
 	public SoccerService soccerService() {
-		return new SoccerServiceSQL();
+		return new SoccerServiceJpa();
 	}
 	
 	@Bean

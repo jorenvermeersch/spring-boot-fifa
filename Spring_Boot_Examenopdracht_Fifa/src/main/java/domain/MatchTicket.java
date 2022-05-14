@@ -51,6 +51,10 @@ public class MatchTicket implements Serializable {
         return match;
     }
     
+    public void setStadium(Stadium stadium) {
+    	this.stadium = stadium;
+    }
+    
     // We want to buy 'amount' tickets for the match. 
     public int buyTickets(int amount) {
         if (amount <= 0) {

@@ -8,12 +8,12 @@ import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-public class GenericDaoJPA<T> implements GenericDao<T> {
+public class GenericDaoJpa<T> implements GenericDao<T> {
     
 	private Class<T> type;
     protected EntityManager entityManager;
 
-    public GenericDaoJPA(Class<T> type) {
+    public GenericDaoJpa(Class<T> type) {
         super();
         this.type = type;
     }

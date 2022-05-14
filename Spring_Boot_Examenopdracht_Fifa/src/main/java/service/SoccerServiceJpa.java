@@ -12,7 +12,7 @@ import repository.MatchTicketDao;
 import repository.StadiumDao;
 
 @Repository
-public class SoccerServiceSQL implements SoccerService {
+public class SoccerServiceJpa implements SoccerService {
 
 	@Autowired
 	private StadiumDao stadiumDao;

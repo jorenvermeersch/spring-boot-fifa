@@ -7,9 +7,9 @@ import javax.persistence.TypedQuery;
 import domain.MatchTicket;
 import domain.Stadium;
 
-public class StadiumDaoJPA extends GenericDaoJPA<Stadium> implements StadiumDao {
+public class StadiumDaoJpa extends GenericDaoJpa<Stadium> implements StadiumDao {
 
-	public StadiumDaoJPA(Class<Stadium> type) {
+	public StadiumDaoJpa(Class<Stadium> type) {
 		super(type);
 	}
 

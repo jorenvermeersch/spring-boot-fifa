@@ -4,9 +4,9 @@ import javax.persistence.TypedQuery;
 
 import domain.MatchTicket;
 
-public class MatchTicketDaoJPA extends GenericDaoJPA<MatchTicket> implements MatchTicketDao {
+public class MatchTicketDaoJpa extends GenericDaoJpa<MatchTicket> implements MatchTicketDao {
 
-	public MatchTicketDaoJPA(Class<MatchTicket> type) {
+	public MatchTicketDaoJpa(Class<MatchTicket> type) {
 		super(type);
 	}
 

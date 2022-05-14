@@ -30,6 +30,10 @@ public class Stadium implements Serializable {
 	public Stadium() {
 		// Used by JPA.
 	}
+	
+	public Stadium(String name) {
+		this.name = name; 
+	}
 
 	public String getName() {
 		return name;

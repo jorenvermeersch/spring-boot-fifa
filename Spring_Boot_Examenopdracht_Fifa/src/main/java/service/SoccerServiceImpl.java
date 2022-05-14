@@ -55,12 +55,12 @@ public class SoccerServiceImpl implements SoccerService {
 	}
 
 	// Returns amount of tickets for a match given the id of the match.
-	public MatchTicket getMatch(String id) {
-		return mapMatchdById.get(id);
+	public MatchTicket getMatch(String matchId) {
+		return mapMatchdById.get(matchId);
 	}
 
-	public int orderTickets(String id, int amount) {
-		MatchTicket matchTicket = mapMatchdById.get(id);
+	public int orderTickets(String matchId, int amount) {
+		MatchTicket matchTicket = mapMatchdById.get(matchId);
 		return matchTicket.buyTickets(amount);
 	}
 }

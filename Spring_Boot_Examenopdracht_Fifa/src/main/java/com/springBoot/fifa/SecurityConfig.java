@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// Users can only access overview. Admins can access everything.
 		http.authorizeRequests().antMatchers("/403*").permitAll().antMatchers("/fifa").hasRole(ROLE_USER)
 				.antMatchers("/fifa/**").hasRole(ROLE_ADMIN);
-
+		
 		// Everyone can access login page. Set up `Access denied` page.
 		http.formLogin().defaultSuccessUrl("/fifa", true).loginPage("/login").permitAll().and().exceptionHandling()
 				.accessDeniedPage("/403").and().csrf();

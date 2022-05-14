@@ -31,14 +31,18 @@ public class SoccerServiceJpa implements SoccerService {
 	}
 
 	@Override
-	public MatchTicket getMatch(String id) {
-		return matchTicketDao.getById(id);
+	public MatchTicket getMatch(String matchId) {
+		return matchTicketDao.getById(matchId);
 	}
 
 	@Override
-	public int orderTickets(String id, int amount) {
-		MatchTicket matchTicket = this.getMatch(id);
-		return matchTicket.buyTickets(amount);
+	public int orderTickets(String matchId, int amount) {
+		MatchTicket matchTicket = this.getMatch(matchId);
+		
+		int tickets = matchTicket.buyTickets(amount);
+		matchTicketDao.update(matchTicket);
+		
+		return tickets; 
 	}
 
 }

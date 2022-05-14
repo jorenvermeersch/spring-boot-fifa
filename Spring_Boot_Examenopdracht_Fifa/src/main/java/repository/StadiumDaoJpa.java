@@ -15,7 +15,7 @@ public class StadiumDaoJpa extends GenericDaoJpa<Stadium> implements StadiumDao 
 
 	@Override
 	public List<MatchTicket> getMatchesByName(String name) {
-		TypedQuery<MatchTicket> query = entityManager.createNamedQuery("Stadium.getMatchesByName", MatchTicket.class); 
+		TypedQuery<MatchTicket> query = entityManager.createNamedQuery("Stadium.getMatchesByName", MatchTicket.class).setParameter("name", name); 
 		return query.getResultList();
 	}
 

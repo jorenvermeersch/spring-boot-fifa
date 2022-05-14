@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "stadiums")
 @NamedQueries({
-		@NamedQuery(name = "Stadium.getMatchesByName", query = "SELECT mt FROM Stadium s JOIN MatchTicket mt ON s = mt.stadium") })
+		@NamedQuery(name = "Stadium.getMatchesByName", query = "SELECT mt FROM Stadium s JOIN MatchTicket mt ON s = mt.stadium WHERE mt.stadium.name = :name") })
 public class Stadium implements Serializable {
 	private static final long serialVersionUID = 1L;
 

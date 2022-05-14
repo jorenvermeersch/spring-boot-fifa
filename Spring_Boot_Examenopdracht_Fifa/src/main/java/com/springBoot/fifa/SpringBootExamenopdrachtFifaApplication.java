@@ -29,43 +29,43 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootExamenopdrachtFifaApplication.class, args);
 	}
-	
+
 	@Bean
 	public OrderValidation orderValidation() {
-		return new OrderValidation(); 
+		return new OrderValidation();
 	}
-	
+
 	@Bean
 	public StadiumDao stadiumDao() {
 		return new StadiumDaoJpa(Stadium.class);
 	}
-	
+
 	@Bean
 	public MatchTicketDao matchTicketDao() {
 		return new MatchTicketDaoJpa(MatchTicket.class);
 	}
-	
-	@Bean 
+
+	@Bean
 	public MatchDao matchDao() {
 		return new MatchDaoJpa(Match.class);
 	}
-	
-	@Bean 
+
+	@Bean
 	public SoccerService soccerService() {
 		return new SoccerServiceJpa();
 	}
-	
+
 	@Bean
-	public DatabaseSeeder seeder() {
-		return new DatabaseSeeder();
+	public DatabaseSeeder seeder(StadiumDao stadiumDao, MatchTicketDao matchTicketDao, MatchDao matchDao) {
+		return new DatabaseSeeder(stadiumDao, matchTicketDao, matchDao);
 	}
-	
+
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/css/**").addResourceLocations("resources/css/");
 		registry.addResourceHandler("/scripts/**").addResourceLocations("resources/scripts/");
 	}
-	
+
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/403").setViewName("access_denied");

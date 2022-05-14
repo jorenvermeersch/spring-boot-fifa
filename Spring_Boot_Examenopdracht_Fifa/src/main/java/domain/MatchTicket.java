@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "matchtickets")
 @NamedQueries({
-	@NamedQuery(name = "MatchTicket.getById", query = "SELECT mt FROM MatchTicket mt WHERE mt.id = :id")
+	@NamedQuery(name = "MatchTicket.getById", query = "SELECT mt FROM MatchTicket mt JOIN Match m ON mt.match = m WHERE m.id = :id")
 })
 public class MatchTicket implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -51,6 +51,7 @@ public class MatchTicket implements Serializable {
         return match;
     }
     
+    // Only used for seeding purposes. 
     public void setStadium(Stadium stadium) {
     	this.stadium = stadium;
     }

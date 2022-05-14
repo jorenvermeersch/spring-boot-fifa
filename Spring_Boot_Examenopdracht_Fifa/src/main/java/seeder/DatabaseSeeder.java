@@ -24,14 +24,16 @@ import repository.StadiumDao;
 @Component
 public class DatabaseSeeder {
 
-	@Autowired
 	private StadiumDao stadiumDao;
-
-	@Autowired
 	private MatchTicketDao matchTicketDao;
+	private MatchDao matchDao;
 	
 	@Autowired
-	private MatchDao matchDao;
+	public DatabaseSeeder(StadiumDao stadiumDao, MatchTicketDao matchTicketDao, MatchDao matchDao) {
+		this.stadiumDao = stadiumDao;
+		this.matchTicketDao = matchTicketDao;
+		this.matchDao = matchDao;
+	}
 
 	@EventListener
 	public void seed(ContextRefreshedEvent event) {

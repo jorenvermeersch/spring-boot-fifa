@@ -10,8 +10,8 @@ public interface SoccerService {
 
 	public List<MatchTicket> getMatchesByStadium(String stadium);
 
-	public MatchTicket getMatch(String id);
+	public MatchTicket getMatch(String matchId);
 
-	public int orderTickets(String id, int amount);
+	public int orderTickets(String matchId, int amount);
 
 }

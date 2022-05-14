@@ -27,7 +27,6 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 	
 	@Bean 
 	public SoccerService soccerService() {
-		// return new SoccerServiceJPA();
 		return new SoccerServiceImpl();
 	}
 	

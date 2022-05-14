@@ -13,4 +13,9 @@ public class MatchTicketDaoJPA extends GenericDaoJPA<MatchTicket> implements Mat
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public MatchTicket getById(String id) {
+		throw new UnsupportedOperationException();
+	}
+
 }

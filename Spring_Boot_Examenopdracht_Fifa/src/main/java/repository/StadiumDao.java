@@ -7,6 +7,6 @@ import domain.Stadium;
 
 public interface StadiumDao extends GenericDao<Stadium> {
 
-	public List<MatchTicket> getMatchesById(String id);
+	public List<MatchTicket> getMatchesByName(String name);
 
 }

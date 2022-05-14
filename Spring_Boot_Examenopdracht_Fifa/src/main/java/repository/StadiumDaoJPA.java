@@ -12,7 +12,7 @@ public class StadiumDaoJPA extends GenericDaoJPA<Stadium> implements StadiumDao 
 	}
 
 	@Override
-	public List<MatchTicket> getMatchesById(String id) {
+	public List<MatchTicket> getMatchesByName(String name) {
 		throw new UnsupportedOperationException(); 
 	}
 

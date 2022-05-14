@@ -3,6 +3,8 @@ package com.springBoot.fifa;
 import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -18,16 +20,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class PersistenceJPAConfig {
 
-	// Constants.
-	private static final String DATABASE_USERNAME = "root";
-	private static final String DATABASE_PASSWORD = "root";
-	private static final String DATABASE_NAME = "fifa";
+	@Autowired
+	private DataSource dataSource; // Config in application.properties. 
+	
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-
 		LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
-		entityManager.setDataSource(dataSource());
+		entityManager.setDataSource(dataSource);
 		entityManager.setPackagesToScan(new String[] { "domain" });
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -35,18 +35,6 @@ public class PersistenceJPAConfig {
 		entityManager.setJpaProperties(additionalProperties());
 
 		return entityManager;
-	}
-
-	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-
-		dataSource.setUrl("jdbc:mysql://localhost:3306/" + DATABASE_NAME
-				+ "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-		dataSource.setUsername(DATABASE_USERNAME);
-		dataSource.setPassword(DATABASE_PASSWORD);
-		return dataSource;
 	}
 
 	@Bean
@@ -63,9 +51,9 @@ public class PersistenceJPAConfig {
 
 	Properties additionalProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		// properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 		
-//		properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 		return properties;
 	}
 }

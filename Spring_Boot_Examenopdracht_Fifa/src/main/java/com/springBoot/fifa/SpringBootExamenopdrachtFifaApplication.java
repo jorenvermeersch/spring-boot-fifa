@@ -13,6 +13,7 @@ import repository.MatchTicketDao;
 import repository.MatchTicketDaoJPA;
 import repository.StadiumDao;
 import repository.StadiumDaoJPA;
+import seeder.DatabaseSeeder;
 import service.SoccerService;
 import service.SoccerServiceSQL;
 import validator.OrderValidation;
@@ -44,6 +45,10 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 		return new SoccerServiceSQL();
 	}
 	
+	@Bean
+	public DatabaseSeeder seeder() {
+		return new DatabaseSeeder();
+	}
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

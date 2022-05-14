@@ -59,8 +59,8 @@ public class SoccerServiceImpl implements SoccerService {
 		return mapMatchdById.get(id);
 	}
 
-	public int orderTickets(String id, int teBestellen) {
+	public int orderTickets(String id, int amount) {
 		MatchTicket matchTicket = mapMatchdById.get(id);
-		return matchTicket.buyTickets(teBestellen);
+		return matchTicket.buyTickets(amount);
 	}
 }

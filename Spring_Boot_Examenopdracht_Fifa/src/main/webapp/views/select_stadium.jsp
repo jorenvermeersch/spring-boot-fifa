@@ -38,7 +38,7 @@
 	<h1>FIFA Word Cup Qatar 2022</h1>
 	<form:form method="post" action="/fifa" modelAttribute="chosenStadium" id="stadium-form">
 		<label for="chosenStadium">${stadiums}:</label>
-		<form:select path="value" id="chosenStadium" name="chosenStadium">
+		<form:select path="name" id="chosenStadium" name="chosenStadium">
 			<form:options items="${stadiumList}"/>
 		</form:select>
 		<input type="submit" class="btn" value="${execute}"/>

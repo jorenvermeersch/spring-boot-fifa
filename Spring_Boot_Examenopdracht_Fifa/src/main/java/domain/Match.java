@@ -1,19 +1,27 @@
 package domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class Match {
-
+@Entity
+@Table(name = "matches")
+public class Match implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	@Id
 	private String id; // Unique key. 
+
 	private String[] countries; // The two countries participating in the match. 
 	private LocalDate day; // Day of the match. 
 	private LocalTime hour; // Hour of the match. 
 
 	public Match() {
+		// Used by JPA.
 	}
 
 	public Match(String id, String[] countries, LocalDate day, LocalTime hour) {

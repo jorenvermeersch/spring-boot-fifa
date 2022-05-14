@@ -66,7 +66,7 @@ public class FifaController {
 
 	@PostMapping
 	public String showOverviewPage(@ModelAttribute("chosenStadium") Stadium chosenStadium, Model model) {
-		model.addAttribute("matchList", soccerService.getMatchesByStadium(chosenStadium.getValue()));
+		model.addAttribute("matchList", soccerService.getMatchesByStadium(chosenStadium.getName()));
 		return "matches/list";
 	}
 

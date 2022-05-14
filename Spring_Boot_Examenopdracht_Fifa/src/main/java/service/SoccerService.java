@@ -12,6 +12,6 @@ public interface SoccerService {
 
 	public MatchTicket getMatch(String id);
 
-	public int orderTickets(String id, int teBestellen);
+	public int orderTickets(String id, int amount);
 
 }

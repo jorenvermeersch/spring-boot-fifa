@@ -33,7 +33,7 @@
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<h2>${stadium}: ${chosenStadium.value}</h2>
+	<h2>${stadium}: ${chosenStadium.name}</h2>
 	<table>
 		<tr>
 			<th>${number}</th>

@@ -1,11 +1,38 @@
 package domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+
 // Amount of tickets available for the match. 
-public class MatchTicket {
-
-    private Match match; 
+@Entity
+@Table(name = "matchtickets")
+public class MatchTicket implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; 
+	
+	@OneToOne
+	private Match match; 
+	
+	@ManyToOne
+	private Stadium stadium;
+	
     private int tickets; // Amount of tickets available. 
-
+    
+    protected MatchTicket() {
+    	// Used by JPA.
+    }
+    
     public MatchTicket(Match match, int tickets) {
         this.match = match;
         this.tickets = tickets;

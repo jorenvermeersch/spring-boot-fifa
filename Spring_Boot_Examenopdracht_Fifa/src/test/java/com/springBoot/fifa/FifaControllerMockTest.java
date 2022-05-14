@@ -81,7 +81,7 @@ class FifaControllerMockTest {
 	private static Stadium getChosenStadium() {
 		String stadiumName = STADIUMS.get(0);
 		Stadium chosenStadium = new Stadium();
-		chosenStadium.setValue(stadiumName);
+		chosenStadium.setName(stadiumName);
 
 		return chosenStadium;
 	}
@@ -140,7 +140,7 @@ class FifaControllerMockTest {
 	public void testPost_showOverviewPage() throws Exception {
 		List<MatchTicket> matchTickets = new ArrayList<>(Arrays.asList(MATCH_TICKETS.get("REGULAR")));
 
-		Mockito.when(mockSoccerService.getMatchesByStadium(CHOSEN_STADIUM.getValue())).thenReturn(matchTickets);
+		Mockito.when(mockSoccerService.getMatchesByStadium(CHOSEN_STADIUM.getName())).thenReturn(matchTickets);
 
 		mockMvc.perform(post(URI).flashAttr("chosenStadium", CHOSEN_STADIUM)).andExpect(status().isOk())
 				.andExpect(view().name("matches/list")).andExpect(model().attribute("chosenStadium", CHOSEN_STADIUM))

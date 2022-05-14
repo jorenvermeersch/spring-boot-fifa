@@ -31,7 +31,7 @@
 	<fmt:parseDate value="${matchTicket.match.day}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
 	
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<h2>${stadium}: ${chosenStadium.value}</h2>
+	<h2>${stadium}: ${chosenStadium.name}</h2>
 	<h3>${matchTicket.match} ${on} <fmt:formatDate type="date" value="${parsedDate}" pattern="dd-MM" /></h3>
 	<h3>${ticketsAvailable}: ${matchTicket.tickets}</h3>
 	

@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -14,6 +16,9 @@ import javax.persistence.Table;
 // Amount of tickets available for the match. 
 @Entity
 @Table(name = "matchtickets")
+@NamedQueries({
+	@NamedQuery(name = "MatchTicket.getById", query = "SELECT mt FROM MatchTicket mt WHERE mt.id = :id")
+})
 public class MatchTicket implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

@@ -8,17 +8,17 @@ import org.springframework.stereotype.Repository;
 
 import domain.MatchTicket;
 import domain.Stadium;
-import repository.MatchTicketDaoJPA;
-import repository.StadiumDaoJPA;
+import repository.MatchTicketDao;
+import repository.StadiumDao;
 
 @Repository
-public class SoccerServiceJPA implements SoccerService {
+public class SoccerServiceSQL implements SoccerService {
 
 	@Autowired
-	private StadiumDaoJPA stadiumDao;
+	private StadiumDao stadiumDao;
 
 	@Autowired
-	private MatchTicketDaoJPA matchTicketDao;
+	private MatchTicketDao matchTicketDao;
 
 	@Override
 	public List<String> getStadiumList() {
@@ -37,7 +37,8 @@ public class SoccerServiceJPA implements SoccerService {
 
 	@Override
 	public int orderTickets(String id, int amount) {
-		return matchTicketDao.orderTickets(id, amount);
+		MatchTicket matchTicket = this.getMatch(id);
+		return matchTicket.buyTickets(amount);
 	}
 
 }

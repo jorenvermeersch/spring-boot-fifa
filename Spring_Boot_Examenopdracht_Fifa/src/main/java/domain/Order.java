@@ -1,14 +1,28 @@
 package domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Range;
-
+@Entity
+@Table(name = "orders")
 public class Order {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@ManyToOne
+	private Match match;
+	
 	@NotEmpty(message = "{validation.required}")
 	@Email(message = "{validation.email.invalid}")
 	private String email;
@@ -25,7 +39,12 @@ public class Order {
 	@NotNull(message = "{validation.required}")
 	@Min(1)
 	private Integer soccerCode2 = 20; 
-
+	
+	public Order() {
+		// Used by JPA.
+	}
+	
+	
 	// Setters.
 	public void setEmail(String email) {
 		this.email = email;

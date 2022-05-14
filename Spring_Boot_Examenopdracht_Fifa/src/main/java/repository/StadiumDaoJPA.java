@@ -2,6 +2,8 @@ package repository;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import domain.MatchTicket;
 import domain.Stadium;
 
@@ -13,7 +15,8 @@ public class StadiumDaoJPA extends GenericDaoJPA<Stadium> implements StadiumDao 
 
 	@Override
 	public List<MatchTicket> getMatchesByName(String name) {
-		throw new UnsupportedOperationException(); 
+		TypedQuery<MatchTicket> query = entityManager.createNamedQuery("Stadium.getMatchesByName", MatchTicket.class); 
+		return query.getResultList();
 	}
 
 }

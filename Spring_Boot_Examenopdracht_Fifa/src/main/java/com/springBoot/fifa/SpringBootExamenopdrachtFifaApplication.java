@@ -14,8 +14,7 @@ import repository.MatchTicketDaoJPA;
 import repository.StadiumDao;
 import repository.StadiumDaoJPA;
 import service.SoccerService;
-import service.SoccerServiceImpl;
-import service.SoccerServiceJPA;
+import service.SoccerServiceSQL;
 import validator.OrderValidation;
 
 @SpringBootApplication
@@ -23,11 +22,6 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootExamenopdrachtFifaApplication.class, args);
-	}
-	
-	@Bean 
-	public SoccerService soccerService() {
-		return new SoccerServiceImpl();
 	}
 	
 	@Bean
@@ -44,6 +38,12 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 	public MatchTicketDao matchTicketDao() {
 		return new MatchTicketDaoJPA(MatchTicket.class);
 	}
+	
+	@Bean 
+	public SoccerService soccerService() {
+		return new SoccerServiceSQL();
+	}
+	
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

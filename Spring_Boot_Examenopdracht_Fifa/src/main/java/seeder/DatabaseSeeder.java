@@ -52,7 +52,7 @@ public class DatabaseSeeder {
 				stadiumDao.insert(stadium);
 				stadiums.add(stadium);
 			});
-			System.out.println("Stadium table succesfully seeded.");
+			notify("Stadium table succesfully seeded.");
 			
 		} catch (Exception exception) {
 			System.out.println("Error occured while seeding Stadium table");
@@ -79,7 +79,7 @@ public class DatabaseSeeder {
 				matches.add(match);
 			});
 			
-			System.out.println("Match table succesfully seeded.");
+			notify("Match table succesfully seeded.");
 		} catch (Exception exception) {
 			System.out.println("Error occured while seeding Match table");
 			exception.printStackTrace();
@@ -101,14 +101,18 @@ public class DatabaseSeeder {
 				matchTicket.setStadium(matchIds.contains(match.getId()) ? stadiums.get(0) : stadiums.get(1));
 				matchTicketDao.insert(matchTicket);
 			}	
-			System.out.println("MatchTicket table succesfully seeded.");
+			notify("MatchTicket table succesfully seeded.");
 
 		} catch (Exception exception) {
 			System.out.println("Error occured while seeding MatchTicket table");
 			exception.printStackTrace();
 		}
-
 		
+	}
+	
+	private void notify(String content) {
+		String message  = String.format("%s %s INFO | %s : %s", LocalDate.now(), LocalTime.now(), this.getClass().getSimpleName(), content);
+		System.out.println(message);
 	}
 
 }

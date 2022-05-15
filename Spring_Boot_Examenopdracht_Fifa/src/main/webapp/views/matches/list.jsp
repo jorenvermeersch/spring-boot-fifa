@@ -17,6 +17,8 @@
 <spring:message code="matchlist.start" var="start"/>
 <spring:message code="matchlist.tickets" var="tickets"/>
 
+<spring:message code="button.logout" var="logoutButton"/>
+
 <spring:message code="date.format.pattern" var="dateFormatPattern"/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,8 +30,8 @@
 <title>${overviewMatches}</title>
 </head>
 <body>
-	<form action="logout" method="post">
-		<input type="submit" class="btn-logout" value="Log out"/>
+	<form action="logout" method="POST">
+		<input type="submit" class="btn-logout" value="${logoutButton}"/>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
 	<h1>FIFA Word Cup Qatar 2022</h1>

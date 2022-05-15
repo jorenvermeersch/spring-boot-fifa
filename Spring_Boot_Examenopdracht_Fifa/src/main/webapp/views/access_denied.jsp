@@ -9,6 +9,8 @@
 <spring:message code="title.accessDenied" var="title"/>
 <spring:message code="access.denied.message" var="message"/>
 
+<spring:message code="button.back" var="backButton"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
@@ -20,5 +22,9 @@
 <body>
 	<h1>${title}</h1>
 	<p>${message}<p>
+	<form action="/fifa" method="POST">
+		<input type="submit" class="btn-logout" value="${backButton}"/>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	</form>
 </body>
 </html>

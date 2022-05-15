@@ -15,6 +15,8 @@
 <spring:message code="confirmation.ticket.purchased" var="ticketsPurchased"/>
 <spring:message code="confirmation.ticket.soldout" var="ticketsSoldOut"/>
 
+<spring:message code="button.logout" var="logoutButton"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
@@ -24,8 +26,8 @@
 <title>${stadiums}</title>
 </head>
 <body>
-	<form action="logout" method="post">
-		<input type="submit" class="btn-logout" value="Log out"/>
+	<form action="logout" method="POST">
+		<input type="submit" class="btn-logout" value="${logoutButton}"/>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
 		<c:if test="${param.verkocht!=null}">
@@ -36,7 +38,7 @@
 	</c:if>
 	
 	<h1>FIFA Word Cup Qatar 2022</h1>
-	<form:form method="post" action="/fifa" modelAttribute="chosenStadium" id="stadium-form">
+	<form:form method="POST" action="/fifa" modelAttribute="chosenStadium" id="stadium-form">
 		<label for="chosenStadium">${stadiums}:</label>
 		<form:select path="name" id="chosenStadium" name="chosenStadium">
 			<form:options items="${stadiumList}"/>

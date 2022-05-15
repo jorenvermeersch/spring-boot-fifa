@@ -3,6 +3,6 @@ INSERT INTO users (username, password, enabled)
 		   ('admin', '$2a$10$KERTp6SBUIuDAYujKZr.3uhpKUlWWNuI3JD/aOa3CGCKWdNje3C2S', 1);
 
 INSERT INTO authorities (username, authority)
-	VALUES ('user', 'USER'),
-		   ('admin', 'USER'),
-		   ('admin', 'ADMIN');
+	VALUES ('user', 'ROLE_USER'),
+		   ('admin', 'ROLE_USER'),
+		   ('admin', 'ROLE_ADMIN');

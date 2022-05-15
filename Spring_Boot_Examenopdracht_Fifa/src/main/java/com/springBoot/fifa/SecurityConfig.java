@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private static final String ROLE_USER = "USER", ROLE_ADMIN = "ADMIN";
+	private static final String ROLE_USER = "USER", ROLE_ADMIN = "ADMIN"; // Automatically has prefix ROLE_ in database. 
 
 	@Autowired
 	private DataSource dataSource;

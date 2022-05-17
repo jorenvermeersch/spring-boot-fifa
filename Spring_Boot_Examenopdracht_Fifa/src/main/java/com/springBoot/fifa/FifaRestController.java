@@ -10,7 +10,7 @@ import service.SoccerService;
 
 @RestController
 @RequestMapping(value = "/fifaDetail")
-public class FifaDetailsController {
+public class FifaRestController {
 	
 	@Autowired
 	private SoccerService soccerService;

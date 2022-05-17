@@ -21,6 +21,7 @@ import repository.StadiumDaoJpa;
 import seeder.DatabaseSeeder;
 import service.SoccerService;
 import service.SoccerServiceJpa;
+import test.TestFifaDetails;
 import validator.OrderValidation;
 
 @SpringBootApplication
@@ -28,6 +29,7 @@ public class SpringBootExamenopdrachtFifaApplication implements WebMvcConfigurer
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootExamenopdrachtFifaApplication.class, args);
+		new TestFifaDetails();
 	}
 
 	@Bean

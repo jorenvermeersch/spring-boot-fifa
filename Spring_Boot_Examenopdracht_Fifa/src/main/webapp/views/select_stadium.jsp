@@ -12,8 +12,11 @@
 <spring:message code="stadiums" var="stadiums"/>
 <spring:message code="button.execute" var="execute"/>
 
-<spring:message code="confirmation.ticket.purchased" var="ticketsPurchased"/>
+<spring:message code="confirmation.ticket.purchased" var="ticketPurchased"/>
+<spring:message code="confirmation.tickets.purchased" var="ticketsPurchased"/>
 <spring:message code="confirmation.ticket.soldout" var="ticketsSoldOut"/>
+
+
 
 <spring:message code="button.logout" var="logoutButton"/>
 
@@ -31,7 +34,7 @@
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
 		<c:if test="${param.verkocht!=null}">
-		<div class="notification">${param.verkocht} ${ticketsPurchased}.</div>
+		<div class="notification">${param.verkocht} ${param.verkocht == 1 ? ticketPurchased : ticketsPurchased}.</div>
 	</c:if>
 	<c:if test="${param.uitverkocht==true}">
 		<div class="notification error">${ticketsSoldOut}.</div>

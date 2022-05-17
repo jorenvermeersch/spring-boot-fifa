@@ -70,7 +70,6 @@ public class FifaController {
 		return "matches/list";
 	}
 
-	// TODO: Something wrong here.
 	@PostMapping(value = "/{id}")
 	public String onPurchase(@PathVariable String id, @Valid Order order, BindingResult result, Model model) {
 		MatchTicket matchTicket = soccerService.getMatch(id);
